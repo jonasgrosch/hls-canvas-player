@@ -1,0 +1,23 @@
+.controls {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 96px 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    background: linear-gradient(0deg, rgba(0, 0, 0 ,1) 0%, rgba(0, 0, 0 ,0.8) 50%, rgba(0, 0, 0 ,0) 100%);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.slider {
+    padding: 8px 4px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
