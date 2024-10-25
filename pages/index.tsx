@@ -8,7 +8,8 @@ import { HlsConfig } from "hls.js";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [cameraId, setCameraId] = useState<string>("3SD343939D4V");
+  const [projectId, setProjectId] = useState<string>("a6487603-2c69-40fb-b1f2-137718004528");
+  const [cameraId, setCameraId] = useState<string>("6aa71aff-9086-45e0-9be4-17785500df70");
   const [startTime, setStartTime] = useState<Date>(new Date("2024-08-17T18:52:00Z"));
   const [endTime, setEndTime] = useState<Date>(new Date("2024-08-17T18:53:00Z"));
 
@@ -42,6 +43,12 @@ export default function Home() {
           />
           <input
             type="text"
+            placeholder="Project ID"
+            value={projectId}
+            onChange={(e) => setProjectId(e.target.value)}
+          />
+          <input
+            type="text"
             placeholder="Camera ID"
             value={cameraId}
             onChange={(e) => setCameraId(e.target.value)}
@@ -70,7 +77,7 @@ export default function Home() {
                     xhr.setRequestHeader("Authorization", `Bearer ${jwt}`);
                   },
                 });
-                const newUri = `${baseUri}/playlist.m3u8?cameraId=${cameraId}&start=${startTime.toISOString()}&end=${endTime.toISOString()}`
+                const newUri = `${baseUri}/${projectId}/cameras/${cameraId}/stream/playlist.m3u8?start=${startTime.toISOString()}&end=${endTime.toISOString()}`
 
                 if (playlistUri === newUri) {
                   setPlaylistUri("");
